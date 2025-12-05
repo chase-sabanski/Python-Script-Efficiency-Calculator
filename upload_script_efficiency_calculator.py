@@ -5,7 +5,7 @@ import pyinputplus as pyip
 
 def main():
     print(("#") * 35)
-    print("PYTHON SCRIPT EFFICIENCY CALCULATOR")
+    print("UPLOAD SCRIPT EFFICIENCY CALCULATOR")
     print(("#") * 35)
 
     def spinner_animation(duration):
