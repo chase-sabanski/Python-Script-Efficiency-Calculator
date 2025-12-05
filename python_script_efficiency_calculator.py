@@ -1,9 +1,25 @@
+import sys
+import time as t
+import itertools
 import pyinputplus as pyip
 
 def main():
     print(("#") * 35)
     print("PYTHON SCRIPT EFFICIENCY CALCULATOR")
     print(("#") * 35)
+
+    def spinner_animation(duration):
+        spinner = itertools.cycle(['-', '\\', '|', '/']) # Sequence of characters for the spinner
+        start_time = t.time()
+
+        while t.time() - start_time < duration:
+            sys.stdout.write('\r' + next(spinner)) # Write the next frame and carriage return
+            sys.stdout.flush() # Flush the output buffer
+            t.sleep(0.1) # Pause briefly
+        
+        # Clear the animation line and print a final message
+        sys.stdout.write('\rComplete.   \n') # Add spaces to clear the line completely
+        sys.stdout.flush()
 
     while True:
 
@@ -37,6 +53,9 @@ def main():
         analysts = 5 # edit this variable depending on the current size of the team
         team_effort = round(days / analysts)
 
+        print(f"\nCalculating for {int_input:,d} tickets...")
+        spinner_animation(3)
+
         print(f"""
         Amount of labor saved in...
          > Minute(s): {minutes:,d}
@@ -45,6 +64,9 @@ def main():
          > Work week(s): {work_weeks:,d}
          > Year(s): {years:,d}
         """)
+
+        print(f"\nCalculating amount of labor for a team of {analysts} analysts...")
+        spinner_animation(3)
 
         # stylistic choice so that each new line starts with a number
         print(f"""
