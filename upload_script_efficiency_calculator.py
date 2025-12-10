@@ -1,11 +1,11 @@
-import sys
-import time as t
 import itertools
 import pyinputplus as pyip
+import sys
+import time as t
 
 def main():
     print(("#") * 35)
-    print("UPLOAD SCRIPT EFFICIENCY CALCULATOR")
+    print("PYTHON SCRIPT EFFICIENCY CALCULATOR")
     print(("#") * 35)
 
     def spinner_animation(duration):
@@ -45,6 +45,7 @@ def main():
         # ...dividing the input by 60 to get total hours then,
         # ...dividing the input by 8 to get total workdays then,
         # ...rounding up at each calculation to avoid large decimals from being printed
+        # ...finally, calculate the amount of money saved using median salary for a SOC analyst ($48.08/hour, Glassdoor 12/2025)
         minutes = round(int_input * 10)
         hours = round(minutes / 60)
         days = round(hours / 8)
@@ -52,6 +53,7 @@ def main():
         years = round(days / 260) # this represents a work year, not a whole calendar year
         analysts = 5 # edit this variable depending on the current size of the team
         team_effort = round(days / analysts)
+        median_salary = round(hours * 48.08)
 
         print(f"\nCalculating for {int_input:,d} tickets...")
         spinner_animation(3)
@@ -60,7 +62,7 @@ def main():
         Amount of labor saved in...
          > Minute(s): {minutes:,d}
          > Hour(s): {hours:,d}
-         > Day(s): {days:,d}
+         > Work day(s): {days:,d}
          > Work week(s): {work_weeks:,d}
          > Year(s): {years:,d}
         """)
@@ -75,6 +77,10 @@ def main():
         {team_effort:,d} days to create
         {int_input:,d} tickets manually if that's all they did everyday for
         8 hours a day.
+
+        In conclusion, ${median_salary:,d} has been saved by automating this process. 
+        
+        (Calculation based on the median salary of a SOC analyst in the U.S.A as of 12/2025.)
         """)
 
         # prompt that allows the user to break the while loop if they type "n" in the terminal
